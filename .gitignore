@@ -1,0 +1,15 @@
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Private runtime files
+storage/logs/*
+!storage/logs/.gitkeep
+
+# Uploaded/generated files
+uploads/news_images/*
+uploads/past_events/*
+uploads/speaker_images/*
+!uploads/**/.htaccess
