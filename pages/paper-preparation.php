@@ -2,10 +2,10 @@
 /**
  * Paper Preparation Page
  */
-require_once dirname(__DIR__) . '/config/config.php';
+require_once __DIR__ . '/../assets/bootstrap.php';
 
 $pageTitle = 'Paper Preparation - FMLDS';
-include dirname(__DIR__) . '/includes/header.php';
+include_header();
 ?>
 
 <section class="section">
@@ -48,11 +48,11 @@ include dirname(__DIR__) . '/includes/header.php';
                         <h3 id="paper-formatting" style="margin-top: 2rem; margin-bottom: 1rem; color: var(--primary-color);">Paper Formatting</h3>
                         <p style="margin-bottom: 1.5rem; line-height: 1.8;">
                             Submitted papers should be between 4 and 6 pages in length. Additional pages incur publication fees of USD $200 per page. Please ensure your paper is properly formatted. Authors are required to use the IEEE word A4 template in preparing the paper.
-                            <a href="https://www.ieee.org/conferences/publishing/templates.html" target="_blank" style="color: var(--primary-color); text-decoration: underline;">Click here to download it.</a>
+                            <a href="https://www.ieee.org/conferences/publishing/templates.html" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: underline;">Click here to download it.</a>
                         </p>
                         <p style="margin-top: 1.5rem; line-height: 1.8;">
                             More details for IEEE Conference Templates, please visit at
-                            <a href="https://www.ieee.org/conferences/publishing/templates.html" target="_blank" style="color: var(--primary-color);">https://www.ieee.org/conferences/publishing/templates.html</a>
+                            <a href="https://www.ieee.org/conferences/publishing/templates.html" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color);">https://www.ieee.org/conferences/publishing/templates.html</a>
                         </p>
                     </div>
                 </div>
@@ -127,4 +127,4 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<?php include dirname(__DIR__) . '/includes/footer.php'; ?>
+<?php include_footer(); ?>

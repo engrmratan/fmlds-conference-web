@@ -2,10 +2,10 @@
 /**
  * Funds and Awards Page
  */
-require_once dirname(__DIR__) . '/config/config.php';
+require_once __DIR__ . '/../assets/bootstrap.php';
 
 $pageTitle = 'Funds and Awards - FMLDS';
-include dirname(__DIR__) . '/includes/header.php';
+include_header();
 ?>
 
 <section class="section">
@@ -32,10 +32,10 @@ include dirname(__DIR__) . '/includes/header.php';
                 <!-- Funds and Awards Section -->
                 <div id="main-content" class="card" style="max-width: 1200px; margin: 0 auto 3rem auto;">
                     <div class="card-body">
-                        <h2 style="margin-bottom: 2rem; color: var(--primary-color);">Funds and Awards</h2>
-                        <p style="margin-bottom: 1rem; font-weight: bold;">Application Deadline: 11 Sep, 2025</p>
+                        <h2 style="margin-bottom: 2rem; color: var(--primary-color);">FMLDS2026 Awards</h2>
+                        <p style="margin-bottom: 1rem; font-weight: bold;">Application Deadline: 11 Sep, 2026</p>
                         <p style="margin-bottom: 1.5rem; line-height: 1.8;">
-                            To encourage young researchers to join the conference, the conference committee has decided to offer some grants and fee waiver programs. The travel grants will reimburse partial or full travel expenses, provided the participant presents their paper in person at the conference venue. Similarly, the registration waiver will cover partial or full registration costs, provided the paper is presented at FMLDS2025.
+                            To encourage young researchers to join the conference, the conference committee has decided to offer some grants and fee waiver programs. The travel grants will reimburse partial or full travel expenses, provided the participant presents their paper in person at the conference venue. Similarly, the registration waiver will cover partial or full registration costs, provided the paper is presented at FMLDS2026.
                         </p>
                         <p style="margin-bottom: 1.5rem; line-height: 1.8;">
                             The Technical Committee will shortlist candidates based on the review scores and comments of their submitted papers. Final recipients will be selected by the sponsor and notified after the paper acceptance deadline.
@@ -63,6 +63,10 @@ include dirname(__DIR__) . '/includes/header.php';
                         <ul style="padding-left: 2rem; line-height: 2;">
                             <li>This grant will offer a crest for the best paper, provided that the participant presents their paper in person at the conference venue.</li>
                         </ul>
+
+                        <div style="text-align: center; margin-top: 2rem;">
+                            <a href="https://forms.gle/gWoRmKPqnYve1nTr7" target="_blank" class="btn">Grant Application</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -136,4 +140,4 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<?php include dirname(__DIR__) . '/includes/footer.php'; ?>
+<?php include_footer(); ?>

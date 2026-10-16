@@ -2,10 +2,10 @@
 /**
  * Conference Flyer Page
  */
-require_once dirname(__DIR__) . '/config/config.php';
+require_once __DIR__ . '/../assets/bootstrap.php';
 
 $pageTitle = 'Conference Flyer - FMLDS';
-include dirname(__DIR__) . '/includes/header.php';
+include_header();
 ?>
 
 <section class="section">
@@ -21,11 +21,11 @@ include dirname(__DIR__) . '/includes/header.php';
                 </p>
                 
                 <div class="text-center mt-3">
-                    <a href="<?php echo SITE_URL; ?>/contact" class="btn" style="opacity: 0.85;">Request Flyer</a>
+                    <a href="pages/contact.php" class="btn" style="opacity: 0.85;">Request Flyer</a>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<?php include dirname(__DIR__) . '/includes/footer.php'; ?>
+<?php include_footer(); ?>

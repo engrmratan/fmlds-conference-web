@@ -2,10 +2,10 @@
 /**
  * One Page Abstract Page
  */
-require_once dirname(__DIR__) . '/config/config.php';
+require_once __DIR__ . '/../assets/bootstrap.php';
 
 $pageTitle = 'One Page Abstract - FMLDS';
-include dirname(__DIR__) . '/includes/header.php';
+include_header();
 ?>
 
 <section class="section">
@@ -44,7 +44,7 @@ include dirname(__DIR__) . '/includes/header.php';
 
                         <h3 id="abstract-formatting" style="margin-top: 2rem; margin-bottom: 1rem; color: var(--primary-color);">Abstract Formatting</h3>
                         <p style="margin-bottom: 1.5rem; line-height: 1.8;">
-                            Abstract should be 1 page in length. <a href="https://www.fmlds.org/docs/Abstract_Template_FMLDS.docx" target="_blank" style="color: var(--primary-color); text-decoration: underline;">Click here</a> to download the template.
+                            Abstract should be 1 page in length. <a href="https://www.fmlds.org/docs/Abstract_Template_FMLDS.docx" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: underline;">Click here</a> to download the template.
                         </p>
                         <p style="font-weight: bold; margin-bottom: 1rem;">
                             NOTE: Abstracts will not be published in the conference proceedings.
@@ -122,4 +122,4 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<?php include dirname(__DIR__) . '/includes/footer.php'; ?>
+<?php include_footer(); ?>

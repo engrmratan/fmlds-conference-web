@@ -2,10 +2,10 @@
 /**
  * Program Schedule Page
  */
-require_once dirname(__DIR__) . '/config/config.php';
+require_once __DIR__ . '/../assets/bootstrap.php';
 
 $pageTitle = 'Tentative Program - FMLDS';
-include dirname(__DIR__) . '/includes/header.php';
+include_header();
 ?>
 
 <section class="section">
@@ -29,10 +29,19 @@ include dirname(__DIR__) . '/includes/header.php';
             <!-- Right Content Area -->
             <div style="flex: 1;">
 
+                <div class="card" style="max-width: 1200px; margin: 0 auto 3rem auto;">
+                    <div class="card-body">
+                        <h2 style="margin-bottom: 1rem; color: var(--primary-color);">Tentative Program - FMLDS 2026</h2>
+                        <p style="line-height: 1.8;">
+                            The conference program is tentative and may be updated. All scheduled sessions are listed in Japan Standard Time.
+                        </p>
+                    </div>
+                </div>
+
                 <!-- Day 0 - Registration, Networking & Women in Engineering -->
                 <div id="day0" class="card" style="margin-bottom: 3rem;">
             <div class="card-body">
-                <h2 style="margin-bottom: 2rem; color: var(--primary-color);">Day 0- Registration, Networking & Women in Engineering (Friday, 20 November 2026)</h2>
+                <h2 style="margin-bottom: 0.5rem; color: var(--primary-color);">Day 0- Registration, Networking & Women in Engineering (Friday, 20 November 2026)</h2>
 
                 <h3 style="margin-bottom: 1rem; color: var(--primary-color);">(Friday, 20 November 2026)</h3>
 
@@ -58,9 +67,7 @@ include dirname(__DIR__) . '/includes/header.php';
                 <!-- Day 1 - Main Conference -->
                 <div id="day1" class="card" style="margin-bottom: 3rem;">
             <div class="card-body">
-                <h2 style="margin-bottom: 2rem; color: var(--primary-color);">Day 1 - Main Conference (Saturday, 21 November 2026)</h2>
-
-                <h3 style="margin-bottom: 1rem; color: var(--primary-color);">Day 1 - Main Conference (Saturday, 21 November 2026)</h3>
+                <h2 style="margin-bottom: 0.5rem; color: var(--primary-color);">Day 1 - Main Conference (Saturday, 21 November 2026)</h2>
 
                 <table style="width: 100%; border-collapse: collapse; margin: 2rem 0;">
                     <tbody>
@@ -118,11 +125,9 @@ include dirname(__DIR__) . '/includes/header.php';
         </div>
 
                 <!-- Day 2 - Main Conference -->
-                <div id="day2" class="card" style="margin-bottom: 3rem;">
+            <div id="day2" class="card" style="margin-bottom: 3rem;">
             <div class="card-body">
-                <h2 style="margin-bottom: 2rem; color: var(--primary-color);">Day 2 - Main Conference (Sunday, 22 November 2026)</h2>
-
-                <h3 style="margin-bottom: 1rem; color: var(--primary-color);">Day 2 - Main Conference (Sunday, 22 November 2026)</h3>
+                <h2 style="margin-bottom: 0.5rem; color: var(--primary-color);">Day 2 - Main Conference (Sunday, 22 November 2026)</h2>
 
                 <p style="margin-bottom: 2rem; font-weight: bold;">Third Day- 22 November 2026 (Sunday)</p>
 
@@ -196,9 +201,7 @@ include dirname(__DIR__) . '/includes/header.php';
                 <!-- Day 3 - Main Conference -->
                 <div id="day3" class="card" style="margin-bottom: 3rem;">
             <div class="card-body">
-                <h2 style="margin-bottom: 2rem; color: var(--primary-color);">Day 3 - Main Conference (Monday, 23 November 2026)</h2>
-
-                <h3 style="margin-bottom: 1rem; color: var(--primary-color);">Day 3 - Main Conference (Monday, 23 November 2026)</h3>
+                <h2 style="margin-bottom: 0.5rem; color: var(--primary-color);">Day 3 - Main Conference (Monday, 23 November 2026)</h2>
 
                 <p style="margin-bottom: 2rem; font-weight: bold;">Fourth Day- 23 November 2026 (Monday)</p>
 
@@ -279,4 +282,4 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<?php include dirname(__DIR__) . '/includes/footer.php'; ?>
+<?php include_footer(); ?>

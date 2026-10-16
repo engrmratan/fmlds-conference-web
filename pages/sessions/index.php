@@ -3,10 +3,10 @@
  * Special Sessions Overview Page
  * Displays cards for all special sessions with links to individual pages
  */
-require_once dirname(__DIR__) . '/config/config.php';
+require_once __DIR__ . '/../../assets/bootstrap.php';
 
 $pageTitle = 'Special Sessions - FMLDS';
-include dirname(__DIR__) . '/includes/header.php';
+include_header();
 
 // Static sessions data with URLs
 $sessions = [
@@ -67,49 +67,53 @@ $sessions = [
 ];
 ?>
 
-<section class="section">
+<section class="section sessions-section">
     <div class="container">
         <h1 class="section-title">Special Sessions</h1>
-        <p class="section-subtitle">Explore our special sessions and workshops</p>
+        <p class="section-subtitle">Explore focused sessions designed for researchers, practitioners, and innovators shaping the future of machine learning and data science.</p>
 
-        <div class="card-grid">
+        <div class="session-list">
             <?php
             if (!empty($sessions)) {
                 foreach ($sessions as $session) {
                     ?>
-                    <div class="card">
-                        <div class="card-body">
-                            <h3 class="card-title"><?php echo htmlspecialchars($session['title']); ?></h3>
+                    <article class="session-card">
+                        <h2 class="session-card-title">
+                            <a href="pages/sessions/<?php echo htmlspecialchars($session['url']); ?>/index.php">
+                                <?php echo htmlspecialchars($session['title']); ?>
+                            </a>
+                        </h2>
 
-                            <p class="card-text"><?php echo htmlspecialchars($session['description']); ?></p>
+                        <p class="session-card-description">
+                            <?php echo htmlspecialchars($session['description']); ?>
+                        </p>
 
-                            <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">
-                                <?php if ($session['date']): ?>
-                                    <p style="font-size: 0.9rem;"><strong><i class="fas fa-calendar"></i> Date:</strong> <?php echo formatDate($session['date']); ?></p>
-                                <?php endif; ?>
-
-                                <?php if ($session['time']): ?>
-                                    <p style="font-size: 0.9rem;"><strong><i class="fas fa-clock"></i> Time:</strong> <?php echo date('h:i A', strtotime($session['time'])); ?></p>
-                                <?php endif; ?>
-
-                                <?php if ($session['location']): ?>
-                                    <p style="font-size: 0.9rem;"><strong><i class="fas fa-map-marker-alt"></i> Location:</strong> <?php echo htmlspecialchars($session['location']); ?></p>
-                                <?php endif; ?>
-
-                                <?php if ($session['organizer']): ?>
-                                    <p style="font-size: 0.9rem;"><strong><i class="fas fa-user"></i> Organizer:</strong> <?php echo htmlspecialchars($session['organizer']); ?></p>
-                                <?php endif; ?>
-                            </div>
-
-                            <div style="margin-top: 2rem; text-align: center;">
-                                <a href="<?php echo SITE_URL; ?>/sessions/<?php echo $session['url']; ?>" class="btn">View Details</a>
-                            </div>
+                        <div class="session-card-meta">
+                            <?php if ($session['date']): ?>
+                                <span>Date: <?php echo formatDate($session['date']); ?></span>
+                            <?php endif; ?>
+                            <?php if ($session['time']): ?>
+                                <span>Time: <?php echo date('h:i A', strtotime($session['time'])); ?></span>
+                            <?php endif; ?>
+                            <?php if ($session['location']): ?>
+                                <span>Location: <?php echo htmlspecialchars($session['location']); ?></span>
+                            <?php endif; ?>
                         </div>
-                    </div>
+
+                        <div class="session-card-footer">
+                            <div class="session-card-organizer">
+                                <span>Organizer</span>
+                                <strong><?php echo htmlspecialchars($session['organizer']); ?></strong>
+                            </div>
+                            <a href="pages/sessions/<?php echo htmlspecialchars($session['url']); ?>/index.php" class="session-card-link">
+                                View Details
+                            </a>
+                        </div>
+                    </article>
                     <?php
                 }
             } else {
-                echo '<div style="grid-column: 1/-1; text-align: center; padding: 3rem;"><p>Special sessions will be announced soon. Please check back later.</p></div>';
+                echo '<div class="session-empty">Special sessions will be announced soon. Please check back later.</div>';
             }
             ?>
         </div>
@@ -117,5 +121,5 @@ $sessions = [
 </section>
 
 <?php
-include dirname(__DIR__) . '/includes/footer.php';
+include_footer();
 ?>

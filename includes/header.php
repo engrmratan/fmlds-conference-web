@@ -19,9 +19,11 @@ if (!isset($pageTitle)) {
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="<?php echo htmlspecialchars($pageTitle); ?>">
     <meta property="og:description" content="2026 IEEE International Conference on Future Machine Learning and Data Science">
-    <meta property="og:image" content="<?php echo SITE_URL; ?>/assets/images/fmlds2026.jpg">
-    <meta property="og:url" content="<?php echo SITE_URL; ?>">
+    <meta property="og:image" content="uploads/images/fmlds2026.jpg">
+    <meta property="og:url" content="index.php">
     <meta property="og:type" content="website">
+
+    <base href="/fmlds/">
 
     <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,8 +34,8 @@ if (!isset($pageTitle)) {
     <link rel="dns-prefetch" href="//images.unsplash.com">
 
     <!-- Stylesheets with preload -->
-    <link rel="preload" href="<?php echo SITE_URL; ?>/assets/css/style.css" as="style">
-    <link rel="stylesheet" href="<?php echo SITE_URL; ?>/assets/css/style.css">
+    <link rel="preload" href="assets/css/style.css?v=3" as="style">
+    <link rel="stylesheet" href="assets/css/style.css?v=3">
 
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -42,8 +44,8 @@ if (!isset($pageTitle)) {
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="<?php echo SITE_URL; ?>/assets/images/logo.png">
-    <link rel="apple-touch-icon" href="<?php echo SITE_URL; ?>/assets/images/logo.png">
+    <link rel="icon" type="image/png" href="uploads/images/logo.png">
+    <link rel="apple-touch-icon" href="uploads/images/logo.png">
 </head>
 <body>
 <div class="main-wrapper">
@@ -68,9 +70,9 @@ if (!isset($pageTitle)) {
             <div class="container">
                 <div class="nav-wrapper">
                     <div class="logo">
-                        <a href="<?php echo SITE_URL; ?>">
+                        <a href="index.php">
                             <div class="logo-container">
-                                <img src="<?php echo SITE_URL; ?>/assets/images/logo.png" alt="FMLDS Logo">
+                                <img src="uploads/images/logo.png" alt="FMLDS Logo">
                             </div>
                         </a>
                     </div>
@@ -84,53 +86,59 @@ if (!isset($pageTitle)) {
                     
                     <!-- Navigation Menu -->
                     <ul class="nav-menu" id="navMenu">
-                    <li><a href="<?php echo SITE_URL; ?>">Home</a></li>
-                    <li><a href="<?php echo SITE_URL; ?>/speakers">Speakers</a></li>
-                    <li><a href="<?php echo SITE_URL; ?>/call-for-papers">Call for Papers</a></li>
-                    <li><a href="<?php echo SITE_URL; ?>/news">News</a></li>
-                    <li><a href="<?php echo SITE_URL; ?>/submission">Submission</a></li>
-                    <li><a href="<?php echo SITE_URL; ?>/key-dates">Key Dates</a></li>
-                    <li><a href="<?php echo SITE_URL; ?>/program-schedule">Program</a></li>
-                    <li><a href="<?php echo SITE_URL; ?>/travel">Travel</a></li>
-                    <li><a href="<?php echo SITE_URL; ?>/sessions">Sessions</a></li>
-                    <li> <a href="<?php echo SITE_URL; ?>/committee">Committee </a> </li>
-                    <li><a href="<?php echo SITE_URL; ?>/registration">Registration</a></li>
+                    <li><a href="pages/key-dates.php">Key Dates</a></li>
+                    <li><a href="pages/call-for-papers.php">Call for Papers</a></li>
+                    <li><a href="pages/registration.php">Registration</a></li>
+                    <li><a href="pages/submission.php">Submission</a></li>
+                    <li><a href="pages/speakers.php">Speakers</a></li>
+                    <li><a href="pages/program-schedule.php">Program</a></li>
+                    <li><a href="pages/travel.php">Travel</a></li>
+                    <li><a href="pages/funds-awards.php">Awards</a></li>
+                    <li> <a href="pages/committee.php">Committee </a> </li>
+                    <li><a href="pages/information.php">Information</a></li>
+                
                     <li class="dropdown">
-                        <a href="<?php echo SITE_URL; ?>/authors-info">Authors Info <i class="fas fa-chevron-down"></i></a>
+                        <a href="#" class="dropdown-toggle">Authors <i class="fas fa-chevron-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="<?php echo SITE_URL; ?>/authors-info/funds-awards">Funds and Awards</a></li>
-                            <li><a href="<?php echo SITE_URL; ?>/authors-info/one-page-abstract">One Page Abstract - Industry Track</a></li>
-                            <li><a href="<?php echo SITE_URL; ?>/authors-info/paper-preparation">Regular Paper Preparation</a></li>
-                            <li><a href="<?php echo SITE_URL; ?>/authors-info/submission">Paper/Abstract Submission</a></li>
-                            <li><a href="<?php echo SITE_URL; ?>/authors-info/presentation">Presentation Instructions</a></li>
+                            <li><a href="pages/authors-info.php">Authors</a></li>
+                            <li><a href="pages/funds-awards.php">Awards</a></li>
+                            <li><a href="pages/one-page-abstract.php">One Page Abstract - Industry Track</a></li>
+                            <li><a href="pages/paper-preparation.php">Regular Paper Preparation</a></li>
+                            <li><a href="pages/authors-info-submission.php">Paper/Abstract Submission</a></li>
+                            <li><a href="pages/presentation.php">Presentation Instructions</a></li>
+                            <li><a href="pages/sessions/index.php">Sessions</a></li>
+                            <li><a href="pages/sponsorships.php">Sponsorships</a></li>
+                            <li><a href="pages/past-events.php">Past Events</a></li>
+                            <li><a href="pages/contact.php">Contact</a></li>
+                            <li><a href="pages/payment.php">Payment</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown">
-                        <a href="<?php echo SITE_URL; ?>/about">MORE <i class="fas fa-chevron-down"></i></a>
+
+                    <!-- <li class="dropdown">
+                        <a href="pages/about.php">More<i class="fas fa-chevron-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="<?php echo SITE_URL; ?>/about">About</a></li>
-                            <li><a href="<?php echo SITE_URL; ?>/information">Information</a></li>
-                            <li><a href="<?php echo SITE_URL; ?>/accommodation">Accommodation</a></li>
-                            <li><a href="<?php echo SITE_URL; ?>/conference-flyer">Conference Flyer</a></li>
-                            <li><a href="<?php echo SITE_URL; ?>/sponsorships">Sponsorships</a></li>
-                            <li><a href="<?php echo SITE_URL; ?>/past-events">Past Events</a></li>
-                            <li><a href="<?php echo SITE_URL; ?>/contact">Contact</a></li>
-                            <li><a href="<?php echo SITE_URL; ?>/fmlds-bidding">FMLDS Bidding</a></li>
-                            <li><a href="<?php echo SITE_URL; ?>/payment">Payment</a></li>
+                            <li><a href="pages/key-dates.php">Key Dates</a></li>
+                            <li><a href="pages/accommodation.php">Accommodation</a></li>
+                            <li><a href="pages/conference-flyer.php">Conference Flyer</a></li>
+                            <li><a href="pages/fmlds-bidding.php">FMLDS Bidding</a></li>
+                            <li><a href="pages/payment.php">Payment</a></li>
                         </ul>
-                    </li>
+                    </li> -->
+
                     </ul>
                 </div>
             </div>
         </div>
     </nav>
-    
+
+
+
     <?php
     // Show conference header on all pages except index/homepage
     $currentPage = basename($_SERVER['PHP_SELF']);
     $requestUri = $_SERVER['REQUEST_URI'];
     $requestPath = parse_url($requestUri, PHP_URL_PATH) ?: '/';
-    $sitePath = parse_url(SITE_URL, PHP_URL_PATH) ?: '';
+    $sitePath = parse_url('index.php', PHP_URL_PATH) ?: '';
     $normalizedRequestPath = rtrim($requestPath, '/') ?: '/';
     $normalizedSitePath = rtrim($sitePath, '/') ?: '/';
     $isHomePage = (
@@ -148,12 +156,12 @@ if (!isset($pageTitle)) {
                 <div class="conference-dates">
                     <div class="date-month">Nov</div>
                     <div class="date-days">02-05</div>
-                    <div class="date-year">2025</div>
+                    <div class="date-year">2026</div>
                 </div>
                 <div class="conference-title">
-                    <h1>2025 IEEE International Conference on</h1>
+                    <h1>2026 IEEE International Conference on</h1>
                     <h2>Future Machine Learning and Data Science (FMLDS)</h2>
-                    <p class="conference-location">Los Angeles, USA</p>
+                    <p class="conference-location">Kobe, Japan</p>
                 </div>
             </div>
         </div>

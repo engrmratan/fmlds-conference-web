@@ -2,10 +2,10 @@
 /**
  * Call for Papers Page
  */
-require_once dirname(__DIR__) . '/config/config.php';
+require_once __DIR__ . '/../assets/bootstrap.php';
 
 $pageTitle = 'Call for Papers - FMLDS';
-include dirname(__DIR__) . '/includes/header.php';
+include_header();
 ?>
 
 <section class="section">
@@ -18,9 +18,14 @@ include dirname(__DIR__) . '/includes/header.php';
                         <h3 style="margin-bottom: 1.5rem; color: var(--primary-color); text-align: center;">Call for Papers (CFP)</h3>
                         <nav style="display: flex; flex-direction: column; gap: 0.5rem;">
                             <a href="#roadmap" class="btn" style="width: 100%; text-align: left; margin: 0; padding: 0.75rem 1rem; font-size: 0.7rem;">Road Map</a>
+                            <a href="#key-dates" class="btn btn-secondary" style="width: 100%; text-align: left; margin: 0; padding: 0.75rem 1rem; font-size: 0.7rem;">Key Dates</a>
                             <a href="#general-track" class="btn btn-secondary" style="width: 100%; text-align: left; margin: 0; padding: 0.75rem 1rem; font-size: 0.7rem;">CFP General Track</a>
-                            <a href="#ml-transport" class="btn btn-secondary" style="width: 100%; text-align: left; margin: 0; padding: 0.75rem 1rem; font-size: 0.7rem;">CFP ML and AI in Transport</a>
-                            <a href="#ml-engineering" class="btn btn-secondary" style="width: 100%; text-align: left; margin: 0; padding: 0.75rem 1rem; font-size: 0.7rem;">CFP ML in Engineering Applications</a>
+                            <a href="#biomedical-bioinformatics" class="btn btn-secondary" style="width: 100%; text-align: left; margin: 0; padding: 0.75rem 1rem; font-size: 0.7rem;">CFP Biomedical and Bioinformatics</a>
+                            <a href="#transportation-safety" class="btn btn-secondary" style="width: 100%; text-align: left; margin: 0; padding: 0.75rem 1rem; font-size: 0.7rem;">CFP Transportation Systems and Safety</a>
+                            <a href="#engineering-applications" class="btn btn-secondary" style="width: 100%; text-align: left; margin: 0; padding: 0.75rem 1rem; font-size: 0.7rem;">CFP Engineering Applications</a>
+                            <a href="#empathic-computing" class="btn btn-secondary" style="width: 100%; text-align: left; margin: 0; padding: 0.75rem 1rem; font-size: 0.7rem;">CFP Empathic Computing</a>
+                            <a href="#explainable-trustworthy-ai" class="btn btn-secondary" style="width: 100%; text-align: left; margin: 0; padding: 0.75rem 1rem; font-size: 0.7rem;">CFP Explainable and Trustworthy AI</a>
+                            <a href="#submission-info" class="btn btn-secondary" style="width: 100%; text-align: left; margin: 0; padding: 0.75rem 1rem; font-size: 0.7rem;">Submission Information</a>
                         </nav>
                     </div>
                 </div>
@@ -37,12 +42,16 @@ include dirname(__DIR__) . '/includes/header.php';
                 <table style="width: 100%; border-collapse: collapse; margin: 2rem 0;">
                     <tbody>
                         <tr style="border: 1px solid var(--border-color);">
-                            <td style="padding: 1rem; border: 1px solid var(--border-color); font-weight: bold; background: var(--primary-color); color: white;">Paper submission and for Grant Application deadline</td>
-                            <td style="padding: 1rem; border: 1px solid var(--border-color); font-weight: bold;">on 30 April, 2026 11:59:59 pm Japan Standard Time</td>
+                            <td style="padding: 1rem; border: 1px solid var(--border-color); font-weight: bold; background: var(--primary-color); color: white;">Paper submission and grant application deadline - 2nd round</td>
+                            <td style="padding: 1rem; border: 1px solid var(--border-color); font-weight: bold;">07 July, 2026 11:59:59 pm Japan Standard Time</td>
                         </tr>
                         <tr style="border: 1px solid var(--border-color);">
-                            <td style="padding: 1rem; border: 1px solid var(--border-color); font-weight: bold; background: var(--primary-color); color: white;">Paper acceptance notification</td>
+                            <td style="padding: 1rem; border: 1px solid var(--border-color); font-weight: bold; background: var(--primary-color); color: white;">Paper acceptance notification - 1st round</td>
                             <td style="padding: 1rem; border: 1px solid var(--border-color); font-weight: bold;">07 July, 2026</td>
+                        </tr>
+                        <tr style="border: 1px solid var(--border-color);">
+                            <td style="padding: 1rem; border: 1px solid var(--border-color); font-weight: bold; background: var(--primary-color); color: white;">Paper acceptance notification - 2nd round</td>
+                            <td style="padding: 1rem; border: 1px solid var(--border-color); font-weight: bold;">15 August, 2026</td>
                         </tr>
                         <tr style="border: 1px solid var(--border-color);">
                             <td style="padding: 1rem; border: 1px solid var(--border-color); font-weight: bold; background: var(--primary-color); color: white;">Grants and awards notification</td>
@@ -60,15 +69,63 @@ include dirname(__DIR__) . '/includes/header.php';
                 </table>
 
                 <p style="text-align: center; font-style: italic; margin-top: 2rem;">
-                    (It will of course welcome papers on but by no means restricted to in existing disciplines, e.g.)
+                    It will of course welcome papers on, but by no means be restricted to, the existing disciplines listed below.
                 </p>
             </div>
         </div>
 
-        <!-- Conference Tracks -->
+        <!-- Key Dates -->
+        <div id="key-dates" class="card" style="max-width: 1200px; margin: 0 auto 3rem auto;">
+            <div class="card-body">
+                <h2 style="margin-bottom: 2rem; color: var(--primary-color); text-align: center;">Key Dates</h2>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Event</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Paper Submission Deadline</strong></td>
+                                <td>To be announced</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Notification of Acceptance</strong></td>
+                                <td>To be announced</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Camera Ready Submission</strong></td>
+                                <td>To be announced</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Early Bird Registration</strong></td>
+                                <td>To be announced</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Regular Registration</strong></td>
+                                <td>To be announced</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Conference Dates</strong></td>
+                                <td><strong>20-23 November 2026</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p style="margin-top: 2rem; text-align: center; color: var(--text-light);">
+                    Please check back regularly for updated key dates and deadlines.
+                </p>
+            </div>
+        </div>
+
+        <!-- General Track -->
         <div id="general-track" class="card" style="max-width: 1200px; margin: 0 auto 3rem auto;">
             <div class="card-body">
-                <h2 style="margin-bottom: 2rem; color: var(--primary-color); text-align: center;">Conference Tracks</h2>
+                <h2 style="margin-bottom: 2rem; color: var(--primary-color); text-align: center;">General Track</h2>
 
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
                     <!-- Future Machine Learning -->
@@ -241,32 +298,119 @@ include dirname(__DIR__) . '/includes/header.php';
         </div>
 
         <!-- Special Sessions -->
-        <div id="ml-transport" class="card" style="max-width: 1200px; margin: 0 auto 3rem auto;">
+        <div id="biomedical-bioinformatics" class="card" style="max-width: 1200px; margin: 0 auto 3rem auto;">
+            <div class="card-body">
+                <h2 style="margin-bottom: 2rem; color: var(--primary-color); text-align: center;">Call for Machine Learning Applications in Biomedical and Bioinformatics</h2>
+
+                <p style="line-height: 1.8; margin-bottom: 1.5rem;">
+                    This track focuses on innovative applications of machine learning across biomedical sciences and bioinformatics. We encourage submissions that address challenges, present new models, tools, or frameworks, and foster interdisciplinary approaches bridging healthcare, biology, and computational intelligence.
+                </p>
+
+                <h3 style="margin-bottom: 1rem; color: var(--primary-color);">Topics of Interest</h3>
+                <ul style="padding-left: 2rem; line-height: 2;">
+                    <li>Computational Biology and Medical Informatics</li>
+                    <li>Machine Learning for Medical Imaging and Diagnostic Systems</li>
+                    <li>Deep Learning in Bioinformatics and Genomics</li>
+                    <li>Computational Approaches for Drug Discovery and Systems Biology</li>
+                    <li>AI for Patient-Centric Clinical Decision Support</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="transportation-safety" class="card" style="max-width: 1200px; margin: 0 auto 3rem auto;">
             <div class="card-body">
                 <h2 style="margin-bottom: 2rem; color: var(--primary-color); text-align: center;">Call for Machine Learning Applications in Transportation Systems and Safety</h2>
 
                 <p style="line-height: 1.8; margin-bottom: 2rem;">
-                    This special session invites cutting-edge research and innovative applications that leverage Artificial Intelligence (AI) and Machine Learning (ML) to transform all facets of transportation systems. From enhancing roadway safety and traffic operations to revolutionizing freight logistics, public transit, non-motorized travel, materials performance, infrastructure planning, and more—this session will showcase how intelligent algorithms are reshaping the future of mobility. We welcome abstracts, technical papers, and presentations that apply AI/ML to transportation safety analytics, intelligent transportation systems (ITS), traffic simulation and modeling, predictive maintenance, demand forecasting, infrastructure management, equity and accessibility analysis, and more. Contributions that demonstrate practical implementations, interdisciplinary approaches, and policy implications are especially encouraged. Join us in exploring the power of data-driven intelligence in building resilient, efficient, and safe transportation systems.
+                    This special session invites cutting-edge research and innovative applications that leverage Artificial Intelligence (AI) and Machine Learning (ML) to transform all facets of transportation systems. From enhancing roadway safety and traffic operations to revolutionizing freight logistics, public transit, non-motorized travel, materials performance, infrastructure planning, and more, this session will showcase how intelligent algorithms are reshaping the future of mobility.
+                </p>
+
+                <p style="line-height: 1.8;">
+                    We welcome abstracts, technical papers, and presentations that apply AI/ML to transportation safety analytics, intelligent transportation systems (ITS), traffic simulation and modeling, predictive maintenance, demand forecasting, infrastructure management, equity and accessibility analysis, and more. Contributions that demonstrate practical implementations, interdisciplinary approaches, and policy implications are especially encouraged.
                 </p>
             </div>
         </div>
 
-        <div id="ml-engineering" class="card" style="max-width: 1200px; margin: 0 auto 3rem auto;">
+        <div id="engineering-applications" class="card" style="max-width: 1200px; margin: 0 auto 3rem auto;">
             <div class="card-body">
                 <h2 style="margin-bottom: 2rem; color: var(--primary-color); text-align: center;">Call for Machine Learning in Engineering Applications</h2>
 
                 <p style="line-height: 1.8;">
-                    This special session focuses on the application of machine learning techniques in various engineering domains, including construction, water engineering, and other industrial applications. We welcome papers that demonstrate practical implementations of ML algorithms in engineering contexts, addressing real-world challenges and providing innovative solutions.
+                    This special session focuses on the application of machine learning techniques in various engineering domains, including construction, water engineering, manufacturing, process automation, sensor data analysis, engineering simulation, and other industrial applications. We welcome papers that demonstrate practical implementations of ML algorithms in engineering contexts, addressing real-world challenges and providing innovative solutions.
                 </p>
             </div>
         </div>
 
-                <div class="text-center">
-                    <a href="<?php echo SITE_URL; ?>/submission" class="btn">Submit Paper</a>
+        <div id="empathic-computing" class="card" style="max-width: 1200px; margin: 0 auto 3rem auto;">
+            <div class="card-body">
+                <h2 style="margin-bottom: 2rem; color: var(--primary-color); text-align: center;">Call for Machine Learning for Empathic Computing: Intelligent Systems that Understand and Respond to Human Emotions</h2>
+
+                <p style="line-height: 1.8; margin-bottom: 1.5rem;">
+                    This special session invites original research contributions and applied studies focused on the intersection of machine learning and empathic computing. It aims to provide a forum for researchers, developers, and practitioners to share insights, methodologies, and innovations in designing systems that recognize and respond to affective states. The session welcomes interdisciplinary contributions from AI, psychology, education, neuroscience, and human-computer interaction (HCI).
+                </p>
+
+                <h3 style="margin-bottom: 1rem; color: var(--primary-color);">Topics of Interest</h3>
+                <ul style="padding-left: 2rem; line-height: 2;">
+                    <li>Emotion recognition using deep learning and multimodal data</li>
+                    <li>Adaptive systems for mental health and well-being</li>
+                    <li>Affective modeling in educational technologies</li>
+                    <li>AI-driven assistive tools for people with disabilities</li>
+                    <li>Social signal processing in human-robot interaction</li>
+                    <li>Ethical and privacy considerations in empathic systems</li>
+                    <li>User modeling and personalization in empathic interfaces</li>
+                    <li>Empathic dialogue systems and conversational agents</li>
+                    <li>Real-time emotion-aware feedback in AR/VR environments</li>
+                    <li>Applications in healthcare, education, gaming, and automotive industries</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="explainable-trustworthy-ai" class="card" style="max-width: 1200px; margin: 0 auto 3rem auto;">
+            <div class="card-body">
+                <h2 style="margin-bottom: 2rem; color: var(--primary-color); text-align: center;">Call for Explainable and Trustworthy Artificial Intelligence</h2>
+
+                <p style="line-height: 1.8; margin-bottom: 1.5rem;">
+                    This track welcomes research on transparent, reliable, fair, secure, and human-centered AI systems. We invite submissions that advance explainable machine learning, trustworthy AI governance, robust model evaluation, and responsible deployment in real-world applications.
+                </p>
+
+                <h3 style="margin-bottom: 1rem; color: var(--primary-color);">Topics of Interest</h3>
+                <ul style="padding-left: 2rem; line-height: 2;">
+                    <li>Explainable AI and interpretable machine learning</li>
+                    <li>Trustworthy, fair, and accountable AI systems</li>
+                    <li>Robustness, safety, and uncertainty estimation</li>
+                    <li>Privacy-preserving machine learning</li>
+                    <li>Human-centered AI and human-AI collaboration</li>
+                    <li>AI governance, ethics, and responsible deployment</li>
+                    <li>Trustworthy AI for healthcare, transportation, finance, and smart cities</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="submission-info" class="card" style="max-width: 1200px; margin: 0 auto 3rem auto;">
+            <div class="card-body">
+                <h2 style="margin-bottom: 2rem; color: var(--primary-color); text-align: center;">Submission Information</h2>
+
+                <p style="line-height: 1.8; margin-bottom: 1.5rem;">
+                    Authors are invited to submit full papers through the Microsoft CMT conference submission system. Submissions must follow the IEEE conference paper format and should be prepared for potential publication in the conference proceedings.
+                </p>
+
+                <ul style="padding-left: 2rem; line-height: 2; margin-bottom: 2rem;">
+                    <li>Papers must be submitted in their final, publishable form following the IEEE paper format, with a length of 4–6 pages.</li>
+                    <li>The paper or its content must not be presented or published elsewhere prior to this conference.</li>
+                    <li>An author must not submit more than 3 papers.</li>
+                    <li>The contents of submitted papers must not significantly overlap with the content of any paper currently under review or that will be submitted during FMLDS2026.</li>
+                    <li>Submitted papers must go through plagiarism checking software. Less than 30% similarity is highly appreciated.</li>
+                    <li>The Technical Committee retains the right to reject any papers in violation of these requirements.</li>
+                </ul>
+
+                <div style="text-align: center;">
+                    <a href="https://cmt3.research.microsoft.com/FMLDS2026" target="_blank" class="btn">Submit Your Paper on CMT</a>
                 </div>
             </div>
         </div>
     </div>
+  </div>
+</div>
 </section>
 
 <script>
@@ -332,4 +476,4 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<?php include dirname(__DIR__) . '/includes/footer.php'; ?>
+<?php include_footer(); ?>

@@ -3,10 +3,10 @@
  * Past Events Page
  * Displays past events with multiple images
  */
-require_once dirname(__DIR__) . '/config/config.php';
+require_once __DIR__ . '/../assets/bootstrap.php';
 
 $pageTitle = 'Past Events - FMLDS';
-include dirname(__DIR__) . '/includes/header.php';
+include_header();
 
 // Static past events data
 $pastEvents = [
@@ -90,5 +90,5 @@ $pastEvents = [
 </section>
 
 <?php
-include dirname(__DIR__) . '/includes/footer.php';
+include_footer();
 ?>

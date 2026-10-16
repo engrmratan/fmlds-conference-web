@@ -2,10 +2,10 @@
 /**
  * FMLDS Bidding Page
  */
-require_once dirname(__DIR__) . '/config/config.php';
+require_once __DIR__ . '/../assets/bootstrap.php';
 
 $pageTitle = 'FMLDS Bidding - FMLDS';
-include dirname(__DIR__) . '/includes/header.php';
+include_header();
 ?>
 
 <section class="section">
@@ -42,4 +42,4 @@ include dirname(__DIR__) . '/includes/header.php';
     </div>
 </section>
 
-<?php include dirname(__DIR__) . '/includes/footer.php'; ?>
+<?php include_footer(); ?>

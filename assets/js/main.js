@@ -29,10 +29,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const link = dropdown.querySelector('a');
         if (link) {
             link.addEventListener('click', function(e) {
+                e.preventDefault(); // Prevent jumping to top of page
                 if (window.innerWidth <= 768) {
-                    e.preventDefault();
+                    // Toggle active class for mobile dropdowns
                     dropdown.classList.toggle('active');
                 }
+                // On desktop, dropdowns work via :hover - we just prevented the jump
             });
         }
     });

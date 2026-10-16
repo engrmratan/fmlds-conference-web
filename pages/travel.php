@@ -2,10 +2,10 @@
 /**
  * Travel Information Page
  */
-require_once dirname(__DIR__) . '/config/config.php';
+require_once __DIR__ . '/../assets/bootstrap.php';
 
 $pageTitle = 'Travel - FMLDS';
-include dirname(__DIR__) . '/includes/header.php';
+include_header();
 ?>
 
 <section class="section">
@@ -94,27 +94,15 @@ include dirname(__DIR__) . '/includes/header.php';
 
                 <h4 style="margin-bottom: 1rem; color: var(--primary-color);">By Air</h4>
                 <p style="margin-bottom: 1rem; line-height: 1.8;">
-                    <strong>Kansai International Airport (KIX)</strong> is the nearest international airport to Kobe, located about 65 km away.
+                    Itami Airport, in nearby Itami, serves primarily domestic flights throughout Japan. Kobe Airport, built on a reclaimed island south of Port Island, also offers mostly domestic and charter flights, while Kansai International Airport in Osaka mainly serves international flights in the area.
                 </p>
-                <ul style="padding-left: 2rem; line-height: 2; margin-bottom: 2rem;">
-                    <li>Limousine bus: Approximately 1.5-2 hours to Kobe</li>
-                    <li>Train (JR Haruka): Approximately 1 hour to Kyoto, then transfer to Kobe</li>
-                    <li>Taxi: Approximately 1.5 hours (expensive option)</li>
-                </ul>
 
-                <h4 style="margin-bottom: 1rem; color: var(--primary-color);">By Train</h4>
+                <h4 style="margin-bottom: 1rem; color: var(--primary-color);">By Rail</h4>
                 <p style="margin-bottom: 1rem; line-height: 1.8;">
-                    Excellent train connections from major Japanese cities:
+                    The JR West Sanyō Shinkansen stops at Shin-Kobe Station. Sannomiya Station is the main commuter hub in Kobe, serving as the transfer point for major intercity rail services: the JR Kobe Line connects Kobe to Osaka and Himeji, while both the Hankyū Kobe Line and the Hanshin Main Line run from Kobe to Umeda Station in Osaka. Sanyō Electric Railway trains from Himeji reach Sannomiya via the Kōbe Rapid Transit Railway. Kōbe Electric Railway runs north to Sanda and Arima Onsen.
                 </p>
-                <ul style="padding-left: 2rem; line-height: 2; margin-bottom: 2rem;">
-                    <li>From Tokyo: Shinkansen (bullet train) approximately 2.5-3 hours</li>
-                    <li>From Osaka: Local train approximately 30 minutes</li>
-                    <li>From Kyoto: Train approximately 30-45 minutes</li>
-                </ul>
-
-                <h4 style="margin-bottom: 1rem; color: var(--primary-color);">By Bus</h4>
                 <p style="margin-bottom: 1rem; line-height: 1.8;">
-                    Highway buses connect Kobe with major cities across Japan.
+                    Kobe Municipal Subway provides connections to Shin-Kobe and Sannomiya stations from Kobe's western and eastern suburbs. Additionally, Kobe New Transit runs two lines serving Kobe Airport and Rokko Island.
                 </p>
             </div>
         </div>
@@ -192,9 +180,9 @@ include dirname(__DIR__) . '/includes/header.php';
                 <div class="text-center">
                     <h3 style="margin-bottom: 1.5rem; color: var(--primary-color);">Useful Links</h3>
                     <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
-                        <a href="https://www.kobe-cvb.jp/en/" target="_blank" class="btn">Kobe Official Tourism</a>
-                        <a href="https://www.hyperdia.com/" target="_blank" class="btn btn-secondary">Train Schedules</a>
-                        <a href="https://www.japan-guide.com/e/e2161.html" target="_blank" class="btn btn-secondary">Kobe Travel Guide</a>
+                        <a href="https://www.kobe-cvb.jp/en/" target="_blank" rel="noopener noreferrer" class="btn">Kobe Official Tourism</a>
+                        <a href="https://www.hyperdia.com/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Train Schedules</a>
+                        <a href="https://www.japan-guide.com/e/e2161.html" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Kobe Travel Guide</a>
                     </div>
                 </div>
             </div>
@@ -265,4 +253,4 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<?php include dirname(__DIR__) . '/includes/footer.php'; ?>
+<?php include_footer(); ?>

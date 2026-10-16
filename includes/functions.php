@@ -10,9 +10,40 @@ function sanitizeInput($data) {
     }
 
     $data = trim($data);
-    $data = stripslashes($data);
     $data = htmlspecialchars($data, ENT_QUOTES | ENT_HTML5, 'UTF-8');
     return $data;
+}
+
+function root_path($path = '') {
+    return ROOT_DIR . normalize_site_path($path);
+}
+
+function includes_path($file) {
+    return INCLUDES_DIR . '/' . basename($file);
+}
+
+function page_file_path($relativePath = '') {
+    $relativePath = trim(str_replace('\\', '/', (string) $relativePath), '/');
+
+    if ($relativePath === '' || preg_match('(^|/)\.\.(/|$)', $relativePath)) {
+        return false;
+    }
+
+    return PAGES_DIR . '/' . $relativePath;
+}
+
+function include_header($title = null) {
+    global $pageTitle;
+
+    if ($title !== null) {
+        $pageTitle = $title;
+    }
+
+    include includes_path('header.php');
+}
+
+function include_footer() {
+    include includes_path('footer.php');
 }
 
 // Sanitize email specifically
@@ -32,8 +63,9 @@ function generateSecureToken($length = 32) {
 
 // CSRF token generation
 function generateCSRFToken() {
-    if (empty($_SESSION['csrf_token'])) {
+    if (empty($_SESSION['csrf_token']) || empty($_SESSION['csrf_token_time']) || (time() - $_SESSION['csrf_token_time']) > 3600) {
         $_SESSION['csrf_token'] = generateSecureToken(32);
+        $_SESSION['csrf_token_time'] = time();
     }
     return $_SESSION['csrf_token'];
 }
@@ -105,7 +137,7 @@ function generateSlug($string) {
 }
 
 
-// Validate file upload
+// Validate file upload using server-side MIME detection
 function validateFileUpload($file, $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'], $maxSize = 2097152) {
     if (!isset($file['error']) || $file['error'] !== UPLOAD_ERR_OK) {
         return false;
@@ -115,11 +147,13 @@ function validateFileUpload($file, $allowedTypes = ['image/jpeg', 'image/png', '
         return false;
     }
 
-    if (!in_array($file['type'], $allowedTypes)) {
+    $finfo = new finfo(FILEINFO_MIME_TYPE);
+    $detectedMime = $finfo->file($file['tmp_name']);
+
+    if (!in_array($detectedMime, $allowedTypes, true)) {
         return false;
     }
 
-    // Additional security: check file extension
     $extension = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
     $allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
     if (!in_array($extension, $allowedExtensions)) {

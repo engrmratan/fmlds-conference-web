@@ -3,37 +3,41 @@
  * Payment Page
  * Handles payment processing
  */
-require_once dirname(__DIR__) . '/config/config.php';
+require_once __DIR__ . '/../assets/bootstrap.php';
 
 $pageTitle = 'Payment - FMLDS';
+$csrfToken = generateCSRFToken();
 
-// For frontend demo - simulate registration data
 if (!isset($_SESSION['registration_amount'])) {
-    $_SESSION['registration_amount'] = 500; // Default amount
+    $_SESSION['registration_amount'] = 500;
 }
 
 $registration = $_SESSION['registration'] ?? [
     'first_name' => 'Conference',
-    'last_name' => 'Registrant',
-    'email' => 'info@fmlds.org'
+    'last_name'  => 'Registrant',
+    'email'      => 'info@fmlds.org'
 ];
 
-$amount = $_SESSION['registration_amount'];
-$registrationId = 'REG_' . time(); // Simulate registration ID
+$amount        = $_SESSION['registration_amount'];
+$registrationId = 'REG_' . time();
 
-// Handle payment processing (frontend demo)
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $paymentMethod = sanitizeInput($_POST['payment_method']);
-    $paymentId = 'PAY_' . time() . '_' . $registrationId;
+    if (!validateCSRFToken($_POST['csrf_token'] ?? '')) {
+        http_response_code(403);
+        $message = 'Invalid request. Please try again.';
+        $messageType = 'error';
+    } else {
+        $paymentMethod = sanitizeInput($_POST['payment_method'] ?? '');
+        $paymentId     = 'PAY_' . time() . '_' . $registrationId;
 
-    // Simulate successful payment for frontend demo
-    unset($_SESSION['registration_amount']);
+        unset($_SESSION['registration_amount']);
 
-    $message = 'Thank you for your interest! Payment processing will be available soon. Contact us at info@fmlds.org for registration information.';
-    $messageType = 'success';
+        $message = 'Thank you for your interest! Payment processing will be available soon. Contact us at info@fmlds.org for registration information.';
+        $messageType = 'success';
+    }
 }
 
-include dirname(__DIR__) . '/includes/header.php';
+include_header();
 ?>
 
 <section class="section">
@@ -47,7 +51,7 @@ include dirname(__DIR__) . '/includes/header.php';
                 </div>
                 <?php if ($messageType === 'success'): ?>
                     <div class="text-center mt-3">
-                        <a href="<?php echo SITE_URL; ?>" class="btn">Return to Home</a>
+                        <a href="index.php" class="btn">Return to Home</a>
                     </div>
                 <?php endif; ?>
             <?php else: ?>
@@ -59,6 +63,7 @@ include dirname(__DIR__) . '/includes/header.php';
                 </div>
                 
                 <form method="POST" action="">
+                    <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($csrfToken); ?>">
                     <div class="form-group">
                         <label for="payment_method">Select Payment Method *</label>
                         <select id="payment_method" name="payment_method" required>
@@ -93,7 +98,4 @@ document.getElementById('payment_method').addEventListener('change', function() 
 });
 </script>
 
-<?php
-$conn->close();
-include dirname(__DIR__) . '/includes/footer.php';
-?>
+<?php include_footer(); ?>

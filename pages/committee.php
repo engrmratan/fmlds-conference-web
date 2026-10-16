@@ -3,166 +3,193 @@
  * Committee Page
  * Displays committee members with left sidebar navigation
  */
-require_once dirname(__DIR__) . '/config/config.php';
+require_once __DIR__ . '/../assets/bootstrap.php';
 
 $pageTitle = 'Committee - FMLDS';
-include dirname(__DIR__) . '/includes/header.php';
+include_header();
 
 // Committee data organized by categories
 $committeeData = [
-    'chairs' => [
-        'title' => 'Chairs',
+    'honorary-general-chairs' => [
+        'title' => 'Honorary General Chairs',
         'members' => [
             [
-                'name' => 'Professor Haiyan Qiao',
-                'affiliation' => 'California State University, San Bernardino, USA',
-                'photo' => 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&h=300&fit=crop&crop=faces',
-                'title' => 'Professor'
-            ],
-            [
-                'name' => 'Professor Deo Chimba',
-                'affiliation' => 'Tennessee State University, USA',
-                'photo' => 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=faces',
-                'title' => 'Professor'
-            ],
-            [
-                'name' => 'Professor Syed Ahmad Chan Bukhari',
-                'affiliation' => 'St. John\'s University, USA',
-                'photo' => 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=faces',
-                'title' => 'Professor'
+                'name' => 'Professor Yutaka Hata',
+                'affiliation' => 'Vice-President of the University of Hyogo, Japan',
+                'photo' => 'https://fmlds.org/2026/img/members/ProfYutakaHata.jpg',
+                'title' => 'Honorary General Chair'
             ]
         ]
     ],
-    'co-chairs' => [
-        'title' => 'Co-Chairs',
-        'members' => [
-            [
-                'name' => 'Professor Adel Ali Al Jumaily',
-                'affiliation' => 'Melbourne Institute of Technology, Australia',
-                'photo' => 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=300&h=300&fit=crop&crop=faces',
-                'title' => 'Professor'
-            ],
-            [
-                'name' => 'Professor Komalpreet Kaur',
-                'affiliation' => 'Salem State University, USA',
-                'photo' => 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop&crop=faces',
-                'title' => 'Professor'
-            ],
-            [
-                'name' => 'Associate Professor Rafiqul Islam',
-                'affiliation' => 'Charles Stuart University, Australia',
-                'photo' => 'https://images.unsplash.com/photo-1580489944761-15a19d654d0b?w=300&h=300&fit=crop&crop=faces',
-                'title' => 'Associate Professor'
-            ],
-            [
-                'name' => 'Dr Syed Shamsul Islam',
-                'affiliation' => 'Edith Cowan University, Australia',
-                'photo' => 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop&crop=faces',
-                'title' => 'Doctor'
-            ]
-        ]
-    ],
-    'special-session-chairs' => [
-        'title' => 'Special Session/Workshop Chairs',
+    'general-chairs' => [
+        'title' => 'General Chairs',
         'members' => [
             [
                 'name' => 'Professor Essam Rashed',
                 'affiliation' => 'University of Hyogo, Japan',
-                'photo' => 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=faces',
-                'title' => 'Professor'
+                'photo' => 'https://fmlds.org/img/tc-member/ProfEssam_Rashed.jpeg',
+                'title' => 'General Chair'
             ],
             [
-                'name' => 'Associate Professor Mohamed Mabrok',
+                'name' => 'Professor Mohamed Mabrok',
                 'affiliation' => 'Qatar University, Qatar',
-                'photo' => 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=faces',
-                'title' => 'Associate Professor'
-            ],
-            [
-                'name' => 'Dr Mahmoud Bekhit',
-                'affiliation' => 'Australian Catholic University, Australia',
-                'photo' => 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&h=300&fit=crop&crop=faces',
-                'title' => 'Doctor'
+                'photo' => 'https://fmlds.org/img/tc-member/ProfMabrok.JPG',
+                'title' => 'General Chair'
             ]
         ]
     ],
-    'members' => [
-        'title' => 'Members',
+    'technical-program-chairs' => [
+        'title' => 'Technical Program Chairs',
         'members' => [
             [
-                'name' => 'Professor Girija Chetty',
-                'affiliation' => 'University of Canberra, Australia',
-                'photo' => 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&h=300&fit=crop&crop=faces',
-                'title' => 'Professor'
+                'name' => 'Professor Adel Al-Jumaily',
+                'affiliation' => 'Melbourne Institute of Technology (Sydney), Australia',
+                'photo' => 'https://fmlds.org/2026/img/AProfJumaily1.png',
+                'title' => 'Technical Program Chair'
             ],
             [
-                'name' => 'Professor Dipankar Das',
-                'affiliation' => 'Rajshahi University, Bangladesh',
-                'photo' => 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=faces',
-                'title' => 'Professor'
+                'name' => 'Professor Rafiqul Islam',
+                'affiliation' => 'Charles Stuart University, Australia',
+                'photo' => 'https://fmlds.org/2026/img/ProfRafiqulIslam1.png',
+                'title' => 'Technical Program Chair'
             ],
             [
-                'name' => 'Professor Zahidul Islam',
-                'affiliation' => 'Islamic University, Bangladesh',
-                'photo' => 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=faces',
-                'title' => 'Professor'
+                'name' => 'Professor Tomoe Entani',
+                'affiliation' => 'University of Hyogo, Japan',
+                'photo' => 'https://fmlds.org/2026/img/Prof_Entani-1.png',
+                'title' => 'Technical Program Chair'
             ],
             [
-                'name' => 'Associate Professor Norshuhani Zamin',
-                'affiliation' => 'De La Salle University, Philippines',
-                'photo' => 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop&crop=faces',
-                'title' => 'Associate Professor'
+                'name' => 'Professor Haiyan Qiao',
+                'affiliation' => 'California State University, San Bernardino, USA',
+                'photo' => 'https://fmlds.org/2026/img/ProfHaiyaQiao-1.png',
+                'title' => 'Technical Program Chair'
             ],
             [
-                'name' => 'Associate Professor Baisakhi Chakraborty',
-                'affiliation' => 'NIT, India',
-                'photo' => 'https://images.unsplash.com/photo-1580489944761-15a19d654d0b?w=300&h=300&fit=crop&crop=faces',
-                'title' => 'Associate Professor'
+                'name' => 'Dr Syed Shamsul Islam',
+                'affiliation' => 'Edith Cowan University, Australia',
+                'photo' => 'https://fmlds.org/2026/img/DrShams.png',
+                'title' => 'Technical Program Chair'
             ],
             [
-                'name' => 'Associate Professor Ghada Khoriba',
-                'affiliation' => 'Nile University, Egypt',
-                'photo' => 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop&crop=faces',
-                'title' => 'Associate Professor'
+                'name' => 'Dr Norshuhani Zamin',
+                'affiliation' => 'Universiti Tenaga Nasional (UNITEN), Malaysia',
+                'photo' => 'https://fmlds.org/2026/img/ProfNorshuhani-1.png',
+                'title' => 'Technical Program Chair'
             ]
         ]
     ],
-    'industry-track-chairs' => [
-        'title' => 'Industry Track Chairs',
+    'sponsorship-exhibition-industry-chairs' => [
+        'title' => 'Sponsorship and Exhibition (Industry) Chairs',
         'members' => [
             [
-                'name' => 'Anupam Chansarkar',
-                'affiliation' => 'Amazon, California, USA',
-                'photo' => 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=300&h=300&fit=crop&crop=faces',
-                'title' => 'Senior Engineer'
+                'name' => 'Professor Tesuya Saito',
+                'affiliation' => 'Globiz Professional University, Japan',
+                'photo' => 'https://fmlds.org/2026/img/ProfTesuyaSaito1.jpg',
+                'title' => 'Sponsorship and Exhibition Chair'
             ],
             [
-                'name' => 'Abhijeet Mukkawar',
+                'name' => 'Professor Jeffrey C. Yu',
+                'affiliation' => 'George Washington University, USA',
+                'photo' => 'https://fmlds.org/img/tc-member/ProfJeffYu.jpg',
+                'title' => 'Sponsorship and Exhibition Chair'
+            ],
+            [
+                'name' => 'A/Professor Neyara Radwan',
+                'affiliation' => 'Liwa University, UAE',
+                'photo' => 'https://fmlds.org/2026/img/DrNeyara.png',
+                'title' => 'Sponsorship and Exhibition Chair'
+            ],
+            [
+                'name' => 'Mr Abhijeet Mukkawar',
                 'affiliation' => 'Siemens, Texas, USA',
-                'photo' => 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=faces',
-                'title' => 'Principal Engineer'
+                'photo' => 'https://fmlds.org/img/Plenary/MrAbhijeet.png',
+                'title' => 'Sponsorship and Exhibition Chair'
             ]
         ]
     ],
-    'women-engineering-chairs' => [
-        'title' => 'Women in Engineering Chairs',
+    'keynote-plenary-chair' => [
+        'title' => 'Keynote and Plenary Chair',
         'members' => [
             [
-                'name' => 'Dr Naila Mukhtar',
-                'affiliation' => 'The University of Sydney, Australia',
-                'photo' => 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop&crop=faces',
-                'title' => 'Doctor'
+                'name' => 'Professor Komalpreet Kaur',
+                'affiliation' => 'Salem State University, USA',
+                'photo' => 'https://fmlds.org/img/tc-member/ProfKomalpreet.jpeg',
+                'title' => 'Keynote and Plenary Chair'
+            ]
+        ]
+    ],
+    'awards-chairs' => [
+        'title' => 'Awards Chairs',
+        'members' => [
+            [
+                'name' => 'Professor Ryo Haraguchi',
+                'affiliation' => 'University of Hyogo, Japan',
+                'photo' => 'https://fmlds.org/2026/img/ProfHaraguchi-1.png',
+                'title' => 'Awards Chair'
             ],
             [
-                'name' => 'Dr Behnaz Merikhi',
-                'affiliation' => 'Northeastern University – Toronto, Canada',
-                'photo' => 'https://images.unsplash.com/photo-1580489944761-15a19d654d0b?w=300&h=300&fit=crop&crop=faces',
-                'title' => 'Doctor'
+                'name' => 'Professor Altaf-Ul Amin',
+                'affiliation' => 'Nara Institute of Science and Technology, Japan',
+                'photo' => 'https://fmlds.org/2026/img/ProfAltafAmin-1.png',
+                'title' => 'Awards Chair'
+            ]
+        ]
+    ],
+    'workshop-tutorial-chairs' => [
+        'title' => 'Workshop/Tutorial Chairs',
+        'members' => [
+            [
+                'name' => 'Dr Yasmeen Goerge',
+                'affiliation' => 'Monash University, Australia',
+                'photo' => 'https://fmlds.org/2026/img/DrYasmeen.png',
+                'title' => 'Workshop/Tutorial Chair'
             ],
             [
-                'name' => 'Dr Meriam Gay Bautista-Jurney',
-                'affiliation' => 'Lawrence Berkeley National Laboratory, California, USA',
-                'photo' => 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop&crop=faces',
-                'title' => 'Doctor'
+                'name' => 'Dr Riaz-Ul-Haque Mian',
+                'affiliation' => 'Shimane University, Japan',
+                'photo' => 'https://fmlds.org/2026/img/#',
+                'title' => 'Workshop/Tutorial Chair'
+            ]
+        ]
+    ],
+    'special-session-chairs' => [
+        'title' => 'Special Session Chairs',
+        'members' => [
+            [
+                'name' => 'Professor Deo Chimba',
+                'affiliation' => 'Tennessee State University, USA',
+                'photo' => 'https://fmlds.org/img/tc-member/ProfDeoChimba1.png',
+                'title' => 'Special Session Chair'
+            ],
+            [
+                'name' => 'Professor Mohammad Hassanzadeh',
+                'affiliation' => 'Lawrence Technological University, USA',
+                'photo' => 'https://fmlds.org/2026/img/ProfHassanzadeh-1.png',
+                'title' => 'Special Session Chair'
+            ]
+        ]
+    ],
+    'women-in-engineering' => [
+        'title' => 'Women in Engineering',
+        'members' => [
+            [
+                'name' => 'Associate Professor Fariah Mahzabeen',
+                'affiliation' => 'North South University, Bangladesh',
+                'photo' => 'https://fmlds.org/img/Plenary/Fariah.png',
+                'title' => 'Women in Engineering'
+            ],
+            [
+                'name' => 'Dr Khulan Khalzaa',
+                'affiliation' => 'Tokushima University, Japan',
+                'photo' => 'https://fmlds.org/img/tc-member/DrKhulan_Khalzaa1.png',
+                'title' => 'Women in Engineering'
+            ],
+            [
+                'name' => 'Dr Satori Hachisuka',
+                'affiliation' => 'University of Tokyo, Japan',
+                'photo' => 'https://fmlds.org/2026/img/DrSatori-1.png',
+                'title' => 'Women in Engineering'
             ]
         ]
     ],
@@ -171,21 +198,138 @@ $committeeData = [
         'members' => [
             [
                 'name' => 'Dr Rezaul Bashar',
-                'affiliation' => 'GCSTMR, Australia',
-                'photo' => 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=300&h=300&fit=crop&crop=faces',
-                'title' => 'Doctor'
+                'affiliation' => 'Western Sydney University, Australia',
+                'photo' => 'https://fmlds.org/img/tc-member/DrRezaul1.jpg',
+                'title' => 'Publication Chair'
             ],
             [
                 'name' => 'Dr Zakir Hossain',
                 'affiliation' => 'Curtin University, Australia',
-                'photo' => 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&h=300&fit=crop&crop=faces',
-                'title' => 'Doctor'
+                'photo' => 'https://fmlds.org/2026/img/Zakir-1.png',
+                'title' => 'Publication Chair'
+            ]
+        ]
+    ],
+    'publicity-chairs' => [
+        'title' => 'Publicity Chairs',
+        'members' => [
+            [
+                'name' => 'Dr Narottam Das',
+                'affiliation' => 'Central Queensland University, Australia',
+                'photo' => 'https://fmlds.org/2026/img/DrNarottamDas-1.png',
+                'title' => 'Publicity Chair'
             ],
             [
-                'name' => 'Dr Minhaz Uddin Ahmed',
-                'affiliation' => 'Inha University in Tashkent, Uzbekistan',
-                'photo' => 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=faces',
-                'title' => 'Doctor'
+                'name' => 'Dr Mohammad Mehedi Hassan',
+                'affiliation' => 'The University of Informatics, Japan',
+                'photo' => 'https://fmlds.org/2026/img/DrMehedi-1.png',
+                'title' => 'Publicity Chair'
+            ],
+            [
+                'name' => 'Dr Shihao Ye',
+                'affiliation' => 'Hubei Three Gorges Polytechnic, China',
+                'photo' => 'https://fmlds.org/2026/img/DrShihao-1.png',
+                'title' => 'Publicity Chair'
+            ]
+        ]
+    ],
+    'local-organizing-chairs' => [
+        'title' => 'Local Organizing Chairs',
+        'members' => [
+            [
+                'name' => 'Ahmed Elboardy',
+                'affiliation' => 'University of Hyogo, Japan',
+                'photo' => 'https://fmlds.org/2026/img/ahmed-1.png',
+                'title' => 'Local Organizing Chair'
+            ],
+            [
+                'name' => 'Yiming Jia',
+                'affiliation' => 'University of Hyogo, Japan',
+                'photo' => 'https://fmlds.org/2026/img/Yiming.jpg',
+                'title' => 'Local Organizing Chair'
+            ],
+            [
+                'name' => 'Mina Yousef',
+                'affiliation' => 'University of Hyogo, Japan',
+                'photo' => 'https://fmlds.org/2026/img/Mina.jpg',
+                'title' => 'Local Organizing Chair'
+            ],
+            [
+                'name' => 'Makoto Kanehira',
+                'affiliation' => 'University of Hyogo, Japan',
+                'photo' => 'https://fmlds.org/2026/img/makoto.jpg',
+                'title' => 'Local Organizing Chair'
+            ]
+        ]
+    ],
+    'technical-committee-members' => [
+        'title' => 'Technical Committee Members',
+        'members' => [
+            [
+                'name' => 'Professor Ghada Khoriba',
+                'affiliation' => 'Nile University, Egypt',
+                'photo' => 'https://fmlds.org/2026/img/Prof_Ghada-1.png',
+                'title' => 'Technical Committee Member'
+            ],
+            [
+                'name' => 'Professor Jocelyn Cu',
+                'affiliation' => 'De La Salle University, Philippines',
+                'photo' => 'https://fmlds.org/2026/img/ProfJocelynn.png',
+                'title' => 'Technical Committee Member'
+            ],
+            [
+                'name' => 'Professor Zahidul Islam',
+                'affiliation' => 'Islamic University, Bangladesh',
+                'photo' => 'https://fmlds.org/2026/img/ProfZahid1.png',
+                'title' => 'Technical Committee Member'
+            ],
+            [
+                'name' => 'Professor Tamer Arafa',
+                'affiliation' => 'Nile University, Egypt',
+                'photo' => 'https://fmlds.org/2026/img/Prof_Tamer.jpeg',
+                'title' => 'Technical Committee Member'
+            ],
+            [
+                'name' => 'Dr Jang-Hee Yoo',
+                'affiliation' => 'Electronics and Telecommunications Research Institute (ETRI), Korea Republic',
+                'photo' => 'https://fmlds.org/2026/img/Jang-Hee%20Yoo-1.png',
+                'title' => 'Technical Committee Member'
+            ],
+            [
+                'name' => 'Dr Khan Farhan Rafat',
+                'affiliation' => 'NBF, Pakistan',
+                'photo' => 'https://fmlds.org/2026/img/ProfKhanRafat.jpg',
+                'title' => 'Technical Committee Member'
+            ],
+            [
+                'name' => 'Dr Noor Akma Abu Bakar',
+                'affiliation' => 'Universiti Tenaga Nasional (UNITEN), Malaysia',
+                'photo' => 'https://fmlds.org/2026/img/DrNoor-1.png',
+                'title' => 'Technical Committee Member'
+            ],
+            [
+                'name' => 'Dr Zahraa Abdallah',
+                'affiliation' => 'University of Bristol, UK',
+                'photo' => 'https://fmlds.org/2026/img/Dr_Zahraa1.png',
+                'title' => 'Technical Committee Member'
+            ],
+            [
+                'name' => 'Dr Alaa Tharwat',
+                'affiliation' => 'Bielefeld University of applied sciences and Arts, Germany',
+                'photo' => 'https://fmlds.org/2026/img/DrAlaa-1.png',
+                'title' => 'Technical Committee Member'
+            ],
+            [
+                'name' => 'Dr Khairi Azhar Aziz',
+                'affiliation' => 'Universiti Tenaga Nasional (UNITEN), Malaysia',
+                'photo' => 'https://fmlds.org/2026/img/DrAziz-1.png',
+                'title' => 'Technical Committee Member'
+            ],
+            [
+                'name' => 'Dr Nurul Akhmal',
+                'affiliation' => 'Dhofar University, Oman',
+                'photo' => 'https://fmlds.org/2026/img/NurulAkhmal.png',
+                'title' => 'Technical Committee Member'
             ]
         ]
     ]
@@ -196,13 +340,14 @@ $committeeData = [
     <div class="container">
         <div style="display: flex; gap: 2rem; margin-top: 2rem;">
             <!-- Left Sidebar Navigation -->
-            <div style="flex: 0 0 230px;">
+            <div style="flex: 0 0 300px;">
                 <div class="card">
                     <div class="card-body">
                         <h3 style="margin-bottom: 1.5rem; color: var(--primary-color); text-align: center;">Technical Committee</h3>
                         <nav style="display: flex; flex-direction: column; gap: 0.5rem;">
+                            <?php $firstCommitteeKey = array_key_first($committeeData); ?>
                             <?php foreach ($committeeData as $key => $category): ?>
-                                <a href="#<?php echo $key; ?>" class="btn <?php echo $key === 'chairs' ? '' : 'btn-secondary'; ?>" style="width: 100%; text-align: left; margin: 0; padding: 0.75rem 1rem; font-size: 0.7rem;"><?php echo $category['title']; ?></a>
+                                <a href="#<?php echo $key; ?>" class="btn <?php echo $key === $firstCommitteeKey ? '' : 'btn-secondary'; ?>" style="width: 100%; text-align: left; margin: 0; padding: 0.75rem 1rem; font-size: 0.7rem;"><?php echo $category['title']; ?></a>
                             <?php endforeach; ?>
                         </nav>
                     </div>
@@ -212,17 +357,17 @@ $committeeData = [
             <!-- Right Content Area -->
             <div style="flex: 1;">
                 <?php foreach ($committeeData as $key => $category): ?>
-                    <div id="<?php echo $key; ?>" class="card committee-section <?php echo $key === 'chairs' ? 'active' : ''; ?>" style="margin-bottom: 3rem;">
+                    <div id="<?php echo $key; ?>" class="card committee-section <?php echo $key === $firstCommitteeKey ? 'active' : ''; ?>" style="margin-bottom: 3rem;">
                         <div class="card-body">
                             <h2 style="margin-bottom: 2rem; color: var(--primary-color);"><?php echo $category['title']; ?></h2>
 
                             <div class="speakers-grid">
                                 <?php foreach ($category['members'] as $member): ?>
                                     <div class="speaker-card">
-                                        <img src="<?php echo htmlspecialchars($member['photo']); ?>" alt="<?php echo htmlspecialchars($member['name']); ?>" class="speaker-image" onerror="this.src='<?php echo SITE_URL; ?>/assets/images/logo.png'">
+                                        <img src="<?php echo htmlspecialchars($member['photo']); ?>" alt="<?php echo htmlspecialchars($member['name']); ?>" class="speaker-image" onerror="this.src='uploads/images/logo.png'">
                                         <h4 class="speaker-name"><?php echo htmlspecialchars($member['name']); ?></h4>
                                         <p class="speaker-title"><?php echo htmlspecialchars($member['title']); ?></p>
-                                        <p style="font-size: 0.7rem; color: var(--text-light); margin-top: 0.4rem; text-align: center;"><?php echo htmlspecialchars($member['affiliation']); ?></p>
+                                        <p style="font-size: 0.7rem; color: var(--text-light);"><?php echo htmlspecialchars($member['affiliation']); ?></p>
                                     </div>
                                 <?php endforeach; ?>
                             </div>
@@ -297,4 +442,4 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<?php include dirname(__DIR__) . '/includes/footer.php'; ?>
+<?php include_footer(); ?>

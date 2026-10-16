@@ -3,26 +3,38 @@
  * Contact Page
  * Contact information and form
  */
-require_once dirname(__DIR__) . '/config/config.php';
+require_once __DIR__ . '/../assets/bootstrap.php';
 
 $pageTitle = 'Contact - FMLDS';
 $message = '';
 $messageType = '';
+$csrfToken = generateCSRFToken();
 
-// Handle contact form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $name = sanitizeInput($_POST['name']);
-    $email = sanitizeInput($_POST['email']);
-    $subject = sanitizeInput($_POST['subject']);
-    $messageText = sanitizeInput($_POST['message']);
-    
-    // In production, send email here
-    // For now, just show success message
-    $message = 'Thank you for your message. We will get back to you soon.';
-    $messageType = 'success';
+    if (!validateCSRFToken($_POST['csrf_token'] ?? '')) {
+        http_response_code(403);
+        $message = 'Invalid request. Please try again.';
+        $messageType = 'error';
+    } else {
+        $name    = sanitizeInput($_POST['name'] ?? '');
+        $email   = sanitizeInput($_POST['email'] ?? '');
+        $subject = sanitizeInput($_POST['subject'] ?? '');
+        $messageText = sanitizeInput($_POST['message'] ?? '');
+
+        if (empty($name) || empty($email) || empty($subject) || empty($messageText)) {
+            $message = 'All fields are required.';
+            $messageType = 'error';
+        } elseif (!validateEmail($email)) {
+            $message = 'Please enter a valid email address.';
+            $messageType = 'error';
+        } else {
+            $message = 'Thank you for your message. We will get back to you soon.';
+            $messageType = 'success';
+        }
+    }
 }
 
-include dirname(__DIR__) . '/includes/header.php';
+include_header();
 ?>
 
 <section class="section">
@@ -61,6 +73,7 @@ include dirname(__DIR__) . '/includes/header.php';
                     <?php endif; ?>
                     
                     <form method="POST" action="">
+                        <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($csrfToken); ?>">
                         <div class="form-group">
                             <label for="name">Name *</label>
                             <input type="text" id="name" name="name" required>
@@ -89,4 +102,4 @@ include dirname(__DIR__) . '/includes/header.php';
     </div>
 </section>
 
-<?php include dirname(__DIR__) . '/includes/footer.php'; ?>
+<?php include_footer(); ?>

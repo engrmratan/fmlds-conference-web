@@ -1,101 +1,127 @@
 <?php
 /**
  * Registration Page
- * Handles conference registration and payment
  */
-require_once dirname(__DIR__) . '/config/config.php';
+require_once __DIR__ . '/../assets/bootstrap.php';
 
 $pageTitle = 'Registration - FMLDS';
 
-// Registration fee structure
-$registrationFees = [
-    'academic' => [
-        'early' => 500,
-        'regular' => 600,
-        'late' => 700
-    ],
-    'industry' => [
-        'early' => 800,
-        'regular' => 900,
-        'late' => 1000
-    ],
-    'student' => [
-        'early' => 300,
-        'regular' => 350,
-        'late' => 400
-    ]
-];
-
-$message = '';
-$messageType = '';
-
-// Handle form submission (frontend demo - no actual processing)
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $firstName = sanitizeInput($_POST['first_name']);
-    $lastName = sanitizeInput($_POST['last_name']);
-    $email = sanitizeInput($_POST['email']);
-    $phone = sanitizeInput($_POST['phone']);
-    $affiliation = sanitizeInput($_POST['affiliation']);
-    $registrationType = sanitizeInput($_POST['registration_type']);
-    $feeType = sanitizeInput($_POST['fee_type']);
-
-    // Calculate amount
-    $amount = $registrationFees[$registrationType][$feeType];
-
-    // For frontend demo, just show success message
-    $message = 'Thank you for your interest! Registration functionality will be available soon. Contact us at info@fmlds.org for more information.';
-    $messageType = 'success';
-}
-
-include dirname(__DIR__) . '/includes/header.php';
+include_header();
 ?>
 
 <section class="section">
-    <div class="container">        
-        <?php if ($message): ?>
-            <div class="alert alert-<?php echo $messageType; ?>">
-                <?php echo htmlspecialchars($message); ?>
-            </div>
-        <?php endif; ?>
-        
-        <!-- Registration Fees Table -->
-        <div class="fees-table">
+    <div class="container">
+        <div class="fees-table" style="max-width: 1200px; margin: 0 auto 3rem auto;">
             <h2 style="text-align: center; margin-bottom: 2rem;">Registration Fees</h2>
+
             <div class="table-container">
                 <table>
                     <thead>
                         <tr>
-                            <th>Category</th>
-                            <th>Early Bird</th>
-                            <th>Regular</th>
-                            <th>Late</th>
+                            <th colspan="2">Registration Types</th>
+                            <th>Early Birds (Close: 15 October 2026)</th>
+                            <th>Birds On Time</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>Academic</strong></td>
-                            <td>$<?php echo $registrationFees['academic']['early']; ?></td>
-                            <td>$<?php echo $registrationFees['academic']['regular']; ?></td>
-                            <td>$<?php echo $registrationFees['academic']['late']; ?></td>
+                            <th rowspan="4">Author/Paper registration**</th>
+                            <td>Non-IEEE Members</td>
+                            <td>JPY &yen;77,500</td>
+                            <td>--</td>
                         </tr>
                         <tr>
-                            <td><strong>Industry</strong></td>
-                            <td>$<?php echo $registrationFees['industry']['early']; ?></td>
-                            <td>$<?php echo $registrationFees['industry']['regular']; ?></td>
-                            <td>$<?php echo $registrationFees['industry']['late']; ?></td>
+                            <td>IEEE Members</td>
+                            <td>JPY &yen;70,000</td>
+                            <td>--</td>
                         </tr>
                         <tr>
-                            <td><strong>Student</strong></td>
-                            <td>$<?php echo $registrationFees['student']['early']; ?></td>
-                            <td>$<?php echo $registrationFees['student']['regular']; ?></td>
-                            <td>$<?php echo $registrationFees['student']['late']; ?></td>
+                            <td>Student Non-IEEE Members</td>
+                            <td>JPY &yen;65,000</td>
+                            <td>--</td>
+                        </tr>
+                        <tr>
+                            <td>IEEE Student Members</td>
+                            <td>JPY &yen;55,000</td>
+                            <td>--</td>
+                        </tr>
+                        <tr>
+                            <th rowspan="4">Non-Author/Attendance only registration</th>
+                            <td>Non-IEEE Members</td>
+                            <td>JPY &yen;65,000</td>
+                            <td>JPY &yen;75,000</td>
+                        </tr>
+                        <tr>
+                            <td>IEEE Members</td>
+                            <td>JPY &yen;55,000</td>
+                            <td>JPY &yen;65,000</td>
+                        </tr>
+                        <tr>
+                            <td>Student Non-IEEE Members</td>
+                            <td>JPY &yen;50,000</td>
+                            <td>JPY &yen;55,000</td>
+                        </tr>
+                        <tr>
+                            <td>IEEE Student Members</td>
+                            <td>JPY &yen;40,000</td>
+                            <td>JPY &yen;45,000</td>
+                        </tr>
+                        <tr>
+                            <th>Virtual Presentation</th>
+                            <td>All types above</td>
+                            <td>JPY &yen;30,000</td>
+                            <td>JPY &yen;35,000</td>
+                        </tr>
+                        <tr>
+                            <td>Additional Paper Each (In addition to the primary registration)</td>
+                            <td>All types above</td>
+                            <td>JPY &yen;30,000</td>
+                            <td>--</td>
+                        </tr>
+                        <tr>
+                            <td>Conference Dinner</td>
+                            <td>All types above</td>
+                            <td>JPY &yen;15,000</td>
+                            <td>JPY &yen;15,000</td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" style="text-align: center; padding: 1rem;">
+                                <a href="https://fmlds.org/registration-author-information.php?confid=fmlds&venue=wsu&registrationType=EBD" class="btn" target="_blank">Register</a>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
-        
+
+        <div style="max-width: 1200px; margin: 0 auto 3rem auto;" class="card">
+            <div class="card-body">
+                <h2 style="margin-bottom: 1.5rem; color: var(--primary-color);">Registration Fees Include</h2>
+                <p style="line-height: 1.8;">
+                    Registration fees include conference kits, publication cost, and admission to all sessions. An additional dinner ticket can be purchased and paid online at JPY &yen;15,000 per person.
+                </p>
+
+                <ol style="padding-left: 2rem; line-height: 2; margin-bottom: 0;">
+                    <li>To use the IEEE registration rate, the registrant needs to provide his/her IEEE membership number in the registration form.</li>
+                    <li>To use the student registration rate, the student needs to provide his/her supervisor's contact information in the registration form.</li>
+                </ol>
+            </div>
+        </div>
+
+        <div style="max-width: 1200px; margin: 0 auto 3rem auto;" class="card">
+            <div class="card-body">
+                <h2 style="margin-bottom: 1.5rem; color: var(--primary-color);">Cancellation and Refund Policy</h2>
+
+                <p style="line-height: 1.8; margin-bottom: 1rem;">
+                    All cancellation/refund requests must be provided in writing with the registration invoice and emailed to <a href="mailto:info@fmlds.org" style="color: var(--primary-color);">info@fmlds.org</a> by 01 October 2026. An administrative fee of JPY &yen;15,000 will be charged for each refund.
+                </p>
+
+                <p style="line-height: 1.8;">
+                    All requests for registration transfers must be provided in writing and emailed to <a href="mailto:info@fmlds.org" style="color: var(--primary-color);">info@fmlds.org</a> by 15 October 2026. The registration rate difference will apply depending on the category of the new registration. All transfer requests received after 15 October 2026 will be charged an additional admin fee of JPY &yen;15,000.
+                </p>
+            </div>
+        </div>
     </div>
 </section>
 
-<?php include dirname(__DIR__) . '/includes/footer.php'; ?>
+<?php include_footer(); ?>

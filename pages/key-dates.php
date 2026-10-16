@@ -2,10 +2,10 @@
 /**
  * Key Dates Page
  */
-require_once dirname(__DIR__) . '/config/config.php';
+require_once __DIR__ . '/../assets/bootstrap.php';
 
 $pageTitle = 'Key Dates - FMLDS';
-include dirname(__DIR__) . '/includes/header.php';
+include_header();
 ?>
 
 <section class="section">
@@ -45,7 +45,7 @@ include dirname(__DIR__) . '/includes/header.php';
                             </tr>
                             <tr>
                                 <td><strong>Conference Dates</strong></td>
-                                <td><strong>02-05 November 2025</strong></td>
+                                <td><strong>20-23 November 2026</strong></td>
                             </tr>
                         </tbody>
                     </table>
@@ -59,4 +59,4 @@ include dirname(__DIR__) . '/includes/header.php';
     </div>
 </section>
 
-<?php include dirname(__DIR__) . '/includes/footer.php'; ?>
+<?php include_footer(); ?>

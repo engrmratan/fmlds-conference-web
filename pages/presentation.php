@@ -2,10 +2,10 @@
 /**
  * Presentation Instructions Page
  */
-require_once dirname(__DIR__) . '/config/config.php';
+require_once __DIR__ . '/../assets/bootstrap.php';
 
 $pageTitle = 'Presentation Instructions - FMLDS';
-include dirname(__DIR__) . '/includes/header.php';
+include_header();
 ?>
 
 <section class="section">
@@ -35,7 +35,7 @@ include dirname(__DIR__) . '/includes/header.php';
                         <ul style="padding-left: 2rem; line-height: 2;">
                             <li>Please prepare a PowerPoint presentation.</li>
                             <li>A presenter will have 10 to 12 minutes to present the paper, including time for questions and answers.</li>
-                            <li>Please refer to our presentation template available in both <a href="./2025/docs/FMLDS2025-PowerpointTemplate.pptx" target="_blank" style="color: var(--primary-color); text-decoration: underline;">PowerPoint</a> and <a href="./2025/docs/FMLDS2025-PowerpointTemplate.pdf" target="_blank" style="color: var(--primary-color); text-decoration: underline;">PDF</a> formats.</li>
+                            <li>Please refer to our presentation template available in both <a href="./2025/docs/FMLDS2025-PowerpointTemplate.pptx" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: underline;">PowerPoint</a> and <a href="./2025/docs/FMLDS2025-PowerpointTemplate.pdf" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: underline;">PDF</a> formats.</li>
                             <li>Presenters are welcome to use their own template as well.</li>
                         </ul>
                     </div>
@@ -111,4 +111,4 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<?php include dirname(__DIR__) . '/includes/footer.php'; ?>
+<?php include_footer(); ?>

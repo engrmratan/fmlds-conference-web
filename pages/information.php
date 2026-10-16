@@ -2,10 +2,10 @@
 /**
  * Information Page
  */
-require_once dirname(__DIR__) . '/config/config.php';
+require_once __DIR__ . '/../assets/bootstrap.php';
 
 $pageTitle = 'Information - FMLDS';
-include dirname(__DIR__) . '/includes/header.php';
+include_header();
 ?>
 
 <section class="section">
@@ -15,16 +15,19 @@ include dirname(__DIR__) . '/includes/header.php';
             <div style="flex: 0 0 300px;">
                 <div class="card">
                     <div class="card-body">
-                        <h3 style="margin-bottom: 1.5rem; color: var(--primary-color); text-align: center;">Information</h3>
+                        <h3 style="margin-bottom: 1.5rem; color: var(--primary-color);">Information</h3>
                         <nav style="display: flex; flex-direction: column; gap: 0.5rem;">
-                            <a href="#grants" class="btn" style="width: 100%; text-align: left; margin: 0; padding: 0.75rem 1rem;">Grants & Awards</a>
-                            <a href="#venue" class="btn btn-secondary" style="width: 100%; text-align: left; margin: 0; padding: 0.75rem 1rem;">Venue / Location</a>
-                            <a href="#jobs" class="btn btn-secondary" style="width: 100%; text-align: left; margin: 0; padding: 0.75rem 1rem;">Job Offers</a>
-                            <a href="#policies" class="btn btn-secondary" style="width: 100%; text-align: left; margin: 0; padding: 0.75rem 1rem;">Policies And Information</a>
-                            <a href="#downloads" class="btn btn-secondary" style="width: 100%; text-align: left; margin: 0; padding: 0.75rem 1rem;">Downloads</a>
-                            <a href="#conference-record" class="btn btn-secondary" style="width: 100%; text-align: left; margin: 0; padding: 0.75rem 1rem;">Conference Record Information</a>
-                            <a href="#faq" class="btn btn-secondary" style="width: 100%; text-align: left; margin: 0; padding: 0.75rem 1rem;">FAQ</a>
-                            <a href="#message-board" class="btn btn-secondary" style="width: 100%; text-align: left; margin: 0; padding: 0.75rem 1rem;">Message Board</a>
+                            <a href="#grants" class="btn-secondary" style="width: 100%; text-align: left; margin: 0; padding: 0.75rem 1rem;">Grants & Awards</a>
+                            <a href="#venue" class="btn-secondary" style="width: 100%; text-align: left; margin: 0; padding: 0.75rem 1rem;">Venue / Location</a>
+                            <a href="#jobs" class="btn-secondary" style="width: 100%; text-align: left; margin: 0; padding: 0.75rem 1rem;">Job Offers</a>
+                            <a href="#policies" class="btn-secondary" style="width: 100%; text-align: left; margin: 0; padding: 0.75rem 1rem;">Policies And Information</a>
+                            <a href="#downloads" class="btn-secondary" style="width: 100%; text-align: left; margin: 0; padding: 0.75rem 1rem;">Downloads</a>
+                            <a href="#conference-flyer" class="btn-secondary" style="width: 100%; text-align: left; margin: 0; padding: 0.75rem 1rem;">Conference Flyer</a>
+                            <a href="#accommodation" class="btn-secondary" style="width: 100%; text-align: left; margin: 0; padding: 0.75rem 1rem;">Accommodation</a>
+                            <a href="#fmlds-bidding" class="btn-secondary" style="width: 100%; text-align: left; margin: 0; padding: 0.75rem 1rem;">FMLDS Bidding</a>
+                            <a href="#conference-record" class="btn-secondary" style="width: 100%; text-align: left; margin: 0; padding: 0.75rem 1rem;">Conference Record Information</a>
+                            <a href="#faq" class="btn-secondary" style="width: 100%; text-align: left; margin: 0; padding: 0.75rem 1rem;">FAQ</a>
+                            <a href="#message-board" class="btn-secondary" style="width: 100%; text-align: left; margin: 0; padding: 0.75rem 1rem;">Message Board</a>
                         </nav>
                     </div>
                 </div>
@@ -210,6 +213,86 @@ include dirname(__DIR__) . '/includes/header.php';
             </div>
         </div>
 
+        <!-- Conference Flyer -->
+        <div id="conference-flyer" class="card" style="max-width: 1200px; margin: 0 auto 3rem auto;">
+            <div class="card-body">
+                <h2 style="margin-bottom: 2rem; color: var(--primary-color);">Conference Flyer</h2>
+
+                <h3 style="margin-bottom: 1rem; color: var(--primary-color);">Download Conference Flyer</h3>
+                <p style="line-height: 1.8;">
+                    The conference flyer will be available for download soon. Please check back later or contact us
+                    at <a href="mailto:info@fmlds.org">info@fmlds.org</a> for more information.
+                </p>
+
+                <div class="text-center mt-3" style="margin-top: 2rem;">
+                    <a href="pages/contact.php" class="btn" style="opacity: 0.85;">Request Flyer</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Accommodation -->
+        <div id="accommodation" class="card" style="max-width: 1200px; margin: 0 auto 3rem auto;">
+            <div class="card-body">
+                <h2 style="margin-bottom: 2rem; color: var(--primary-color);">Accommodation</h2>
+
+                <h3 style="margin-bottom: 1rem; color: var(--primary-color);">Conference Venue</h3>
+                <p style="line-height: 1.8; font-size: 1.1rem;">
+                    The event will be held at the <strong>Holiday Inn, La Mirada – Buena Park, Anaheim</strong>,
+                    just a 7-minute drive from Disneyland. It is well connected by public transport to major
+                    landmarks such as Disneyland, Downtown LA, Hollywood, Long Beach, and more.
+                </p>
+
+                <h3 style="margin-top: 2rem; color: var(--primary-color);">Hotel Information</h3>
+                <p style="margin-top: 1rem; line-height: 1.8;">
+                    Special conference rates may be available at the Holiday Inn. Please check back for booking
+                    information and special rates for conference attendees.
+                </p>
+
+                <h3 style="margin-top: 2rem; color: var(--primary-color);">Nearby Accommodations</h3>
+                <p style="margin-top: 1rem; line-height: 1.8;">
+                    There are numerous hotels and accommodations available in the Anaheim/Buena Park area,
+                    ranging from budget-friendly options to luxury hotels. The area is well-served by public
+                    transportation, making it easy to reach the conference venue.
+                </p>
+
+                <h3 style="margin-top: 2rem; color: var(--primary-color);">Contact</h3>
+                <p style="margin-top: 1rem; line-height: 1.8;">
+                    For accommodation inquiries, please contact us at <a href="mailto:info@fmlds.org">info@fmlds.org</a>.
+                </p>
+            </div>
+        </div>
+
+        <!-- FMLDS Bidding -->
+        <div id="fmlds-bidding" class="card" style="max-width: 1200px; margin: 0 auto 3rem auto;">
+            <div class="card-body">
+                <h2 style="margin-bottom: 2rem; color: var(--primary-color);">FMLDS Bidding</h2>
+
+                <h3 style="margin-bottom: 1rem; color: var(--primary-color);">Host Future FMLDS Conference</h3>
+                <p style="line-height: 1.8;">
+                    Interested in hosting a future FMLDS conference? We welcome proposals from institutions and
+                    organizations around the world.
+                </p>
+
+                <h3 style="margin-top: 2rem; color: var(--primary-color);">Bidding Process</h3>
+                <p style="margin-top: 1rem; line-height: 1.8;">
+                    To submit a bid to host a future FMLDS conference, please contact the organizing committee
+                    with your proposal including:
+                </p>
+                <ul style="margin-top: 1rem; padding-left: 2rem; line-height: 2;">
+                    <li>Proposed location and venue</li>
+                    <li>Local organizing committee</li>
+                    <li>Supporting institutions</li>
+                    <li>Infrastructure and facilities</li>
+                    <li>Expected attendance</li>
+                </ul>
+
+                <h3 style="margin-top: 2rem; color: var(--primary-color);">Contact</h3>
+                <p style="margin-top: 1rem; line-height: 1.8;">
+                    For bidding inquiries, please contact us at <a href="mailto:info@fmlds.org">info@fmlds.org</a>.
+                </p>
+            </div>
+        </div>
+
         <!-- Conference Record Information -->
         <div id="conference-record" class="card" style="max-width: 1200px; margin: 0 auto 3rem auto;">
             <div class="card-body">
@@ -388,4 +471,4 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<?php include dirname(__DIR__) . '/includes/footer.php'; ?>
+<?php include_footer(); ?>
